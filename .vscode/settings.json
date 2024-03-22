@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "MAEZ 0.2.sln"
+    "dotnet.defaultSolution": "MAEZ-0.2.sln"
 }
