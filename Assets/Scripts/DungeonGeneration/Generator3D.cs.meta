@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 6817b318a4e6dce4599fa88e998f6851
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - blueMaterial: {fileID: 2100000, guid: 98af4d855cbfec649a850b33baec302b, type: 2}
+  - greenMaterial: {fileID: 2100000, guid: d0c4157df343d9e49b6afe60cc6a049a, type: 2}
+  - wallPrefab: {fileID: 7111325866872095177, guid: a049deff25043f14da832ff4ce3eea36, type: 3}
+  - cubePrefab: {fileID: 919132149155446097, guid: 0db2170de0d9bec40974096655360db4, type: 3}
+  - player: {fileID: 5129442236857904303, guid: e37d55d9adae8724c9dcf1dff5b67578, type: 3}
+  - cam: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
