@@ -6,6 +6,7 @@ using Graphs;
 using UnityEditor;
 using Cinemachine;
 
+
 public static class Vector3Extensions {
     public static Vector3 Abs(this Vector3 vector) {
         return new Vector3(Mathf.Abs(vector.x), Mathf.Abs(vector.y), Mathf.Abs(vector.z));
@@ -122,6 +123,8 @@ public class Generator3D : MonoBehaviour {
     [SerializeField] GameObject player;
     [SerializeField] CinemachineVirtualCamera cam;
 
+    public GameObject Paths;
+
     Grid3D<Cell> grid;
     Random random;
 
@@ -144,11 +147,47 @@ public class Generator3D : MonoBehaviour {
         Generate();
     }
 
+    public void ResetDungeon()
+    {
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach (Transform child in Paths.transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
+    public void RegenerateDungeon()
+    {
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach (Transform child in Paths.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        System.Threading.Thread.Sleep(5000);
+        
+        roomsTotal.Clear();
+        edgesTotal.Clear();
+        
+        random = new Random(0);
+        roomsTotal = new List<List<Room>> ();
+        edgesTotal = new HashSet<Prim.Edge>();
+        
+        InitGrid();
+        Generate();
+    }
+
     private void InitGrid() {
         grid = new Grid3D<Cell>(size, Vector3Int.zero);
 
         for (int x = 0; x < size.x; x++) {
-            for (int y = 0; y < size.y; y++) {
+            for (int y = 0; y < size.y; y++) { 
                 for (int z = 0; z < size.z; z++) {
                     grid[x, y, z] = new Cell();
                 }
@@ -224,12 +263,13 @@ public class Generator3D : MonoBehaviour {
                 level * levelHeight,
                 random.Next(0, size.z)
             );
-
+        
             Room newRoom = TryPlaceRoom(roomIndex, location, ref floorRooms);
-
+        
             if (newRoom != null) {
                 PlaceRoom(newRoom, ref floorRooms);
             }
+        
         }
 
         return floorRooms;
@@ -249,14 +289,12 @@ public class Generator3D : MonoBehaviour {
             add = false;
             return null;
         }
-
         foreach (var room in floorRooms) {
             if (Room.Intersect(room, buffer)) {
                 add = false;
                 break;
             }
         }
-
         if (!add) {
             return null;
         }
@@ -500,7 +538,7 @@ public class Generator3D : MonoBehaviour {
 
                         MarkWalls(lb, rt, i);
 
-                        GameObject cube = Instantiate(cubePrefab);
+                        GameObject cube = Instantiate(cubePrefab, Paths.transform);
 
                         r1++;
                         r2++;
@@ -697,7 +735,7 @@ public class Generator3D : MonoBehaviour {
     }
 
     void InstantiateRoom(int roomIndex, Vector3Int location) {
-        GameObject go = Instantiate (roomPrefabs[roomIndex], location, Quaternion.identity, transform);
+        GameObject go = Instantiate(roomPrefabs[roomIndex], location, Quaternion.identity, transform);
         SetGameLayerRecursive (go, LayerMask.NameToLayer ("floor" + (location.y / levelHeight)));
     }
 
@@ -720,6 +758,28 @@ public class Generator3D : MonoBehaviour {
             if (_HasChildren != null)
                 SetGameLayerRecursive (child.gameObject, _layer);
 
+        }
+    }
+}
+
+
+[CustomEditor(typeof(Generator3D))]
+public class Generator3DEditor : Editor
+{
+    public override void OnInspectorGUI()
+    {
+        DrawDefaultInspector();
+
+        Generator3D generator = (Generator3D)target;
+
+        if (GUILayout.Button("Generate Dungeon")) // Button to generate the dungeon
+        {
+            generator.RegenerateDungeon();
+        }
+
+        if (GUILayout.Button("Reset Dungeon")) // Button to reset the dungeon
+        {
+            generator.ResetDungeon();
         }
     }
 }

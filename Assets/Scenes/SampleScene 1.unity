@@ -97,10 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: bd135dbf77e35a24ab6e2cfeddc595b6,
-    type: 2}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: 6bdeaaabcf918ee4d99d272d6f4c7be5,
-    type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: bd135dbf77e35a24ab6e2cfeddc595b6, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 6bdeaaabcf918ee4d99d272d6f4c7be5, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -313,6 +311,74 @@ MonoBehaviour:
   player: {fileID: 819749557}
   cam: {fileID: 330585545}
   gen: {fileID: 1628688747}
+--- !u!1 &343326226
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 343326229}
+  - component: {fileID: 343326228}
+  - component: {fileID: 343326227}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &343326227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343326226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &343326228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343326226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &343326229
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343326226}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,6 +497,37 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1 &770945538
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 770945539}
+  m_Layer: 0
+  m_Name: Paths
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &770945539
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770945538}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 49.81881, y: 7.190996, z: 77.235886}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &819749553
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,7 +655,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 2
-  m_Constraints: 80
+  m_Constraints: 126
   m_CollisionDetection: 3
 --- !u!136 &819749560
 CapsuleCollider:
@@ -1060,19 +1157,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6817b318a4e6dce4599fa88e998f6851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorsCount: 5
-  levelHeight: 5
-  size: {x: 70, y: 51, z: 70}
-  roomCount: 100
-  hallWidth: 3
-  ventWidth: 2
-  stairsProbability: 0.4
+  floorsCount: 1
+  levelHeight: 100
+  size: {x: 200, y: 51, z: 200}
+  roomCount: 20
+  hallWidth: 4
+  ventWidth: 4
+  stairsProbability: 0
   blueMaterial: {fileID: 2100000, guid: 98af4d855cbfec649a850b33baec302b, type: 2}
   greenMaterial: {fileID: 2100000, guid: d0c4157df343d9e49b6afe60cc6a049a, type: 2}
-  wallPrefab: {fileID: 7111325866872095177, guid: a049deff25043f14da832ff4ce3eea36,
-    type: 3}
-  cubePrefab: {fileID: 1226053894017552339, guid: 03bcd188b575b8f418e91e9831c4d090,
-    type: 3}
+  wallPrefab: {fileID: 7111325866872095177, guid: a049deff25043f14da832ff4ce3eea36, type: 3}
+  cubePrefab: {fileID: 1226053894017552339, guid: 03bcd188b575b8f418e91e9831c4d090, type: 3}
   roomPrefabs:
   - {fileID: 3652750891519208908, guid: 7a583301b36664b408bfe2ee2052af2a, type: 3}
   - {fileID: 3652750891519208908, guid: f24b6a0159720a84a993c3facdbe3c7e, type: 3}
@@ -1080,6 +1175,7 @@ MonoBehaviour:
   reservedIndex: 2
   player: {fileID: 819749553}
   cam: {fileID: 1240467414}
+  Paths: {fileID: 770945538}
 --- !u!1 &1900938652
 GameObject:
   m_ObjectHideFlags: 0
@@ -1194,5 +1290,7 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 819749557}
-  - {fileID: 1628688746}
   - {fileID: 1900938656}
+  - {fileID: 343326229}
+  - {fileID: 1628688746}
+  - {fileID: 770945539}
